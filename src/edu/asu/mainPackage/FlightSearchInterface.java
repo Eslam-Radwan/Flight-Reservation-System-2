@@ -2,11 +2,9 @@ package edu.asu.mainPackage;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.Callable;
 
 public interface FlightSearch {
-    String username;
-    String Email;
-
     default void flightSearch(ArrayList<Flight> Available_Flights){
         Flight Seleceted_Flight = new Flight();
 
@@ -30,25 +28,40 @@ public interface FlightSearch {
 
 
         // searching the database for flights with the same attributes that the user selected
-        Available_Flights.stream().filter(flights -> (Seleceted_Flight.equal(flights) && flights.getNumberofAvailableSeats(SeatClass)>=NumberOfSeats))
-                .forEach( flights -> {
-                        int is_Selected=0;
-                        if(Selected_A_Flight) {
-                           return;
-                        }
-                        FlightSearchRepresentation(flights);
-                        System.out.println("Press 1 to Select Flight"+"\n"+"Press 2 to Proceed to The Next Available Flight");
-                        is_Selected=input.nextInt();
-                        if(is_Selected==1) {
-                            Selected_A_Flight=true;
-                        }
-
-
-        });
+        for(Flight flights:Available_Flights){
+            if(Seleceted_Flight.equal(flights)&&flights.getNumberOfAvailableSeat(SeatClass)>=NumberOfSeats){
+                int Choice = 0;
+                FlightSearchRepresentation(flights);
+                System.out.println("----------------------------------------------------");
+                System.out.println("Press 1 to select the current flight");
+                System.out.println("Press 2 to show the next available flight");
+                Choice=input.nextInt();
+                while (Choice!=1&&Choice!=2){
+                    System.out.println("Invalid Choice!!");
+                    System.out.println("Press 1 to select the current flight");
+                    System.out.println("Press 2 to show the next available flight");
+                    Choice=input.nextInt();
+                }
+                if(Choice==1){
+                    Selected_A_Flight=true;
+                    Seleceted_Flight=flights;
+                    BookingProcess(Seleceted_Flight,NumberOfSeats,SeatClass);
+                    break;
+                }
+            }
+        }
         if(!Selected_A_Flight){
             int exit = 0;
-            System.out.println("You haven't selected a flight!"+"\n"+"Press 0 to Search again or -1 to quit");
+            System.out.println("You haven't selected a flight!");
+            System.out.println("Press 0 to search again");
+            System.out.println("Press -1 to Exit");
             exit=input.nextInt();
+            while(exit!=0&&exit!=-1){
+                System.out.println("Invalid Choice!!");
+                System.out.println("Press 0 to search again");
+                System.out.println("Press -1 to Exit");
+                exit=input.nextInt();
+            }
             if(exit==0)Flight_Search(); // recursion technique
             else return;
         }
@@ -58,9 +71,7 @@ public interface FlightSearch {
         System.out.println("Flight Number: "+flight.getFlightNumber());
         System.out.println("Departure Airport: "+flight.getDepartureAirport);
         System.out.println("Arrival Airport: "+flight.getArrivalAirport());
-        System.out.println("Local Date: "+flight.getLocalDate());
-        System.out.println("Local Time: "+flight.getLocalTime());
-
+        System.out.println("Departure Date: "+flight.getDepartureDate());
     }
 
 }
