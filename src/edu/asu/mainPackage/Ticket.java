@@ -1,11 +1,11 @@
 package edu.asu.mainPackage;
 
 public class Ticket {
-    private int previousTicketNumber;
+    private static int previousTicketNumber;
     private int ticketNumber;
-    double ticketFare;
-    Passenger passenger;
-    Seat passengerSeat;
+    private double ticketFare;
+    private Passenger passenger;
+    private Seat passengerSeat;
     Ticket(Passenger passenger,double ticketFare){
         ticketNumber = previousTicketNumber + 1;
         previousTicketNumber++;
@@ -42,9 +42,8 @@ public class Ticket {
         return " Ticket:" +"\n"+
                 " TicketNumber: " + ticketNumber +"\t"+
                 "TicketFare: " + ticketFare +"\n"+
-                " passenger: " + passenger.getFirstName()+ " " +passenger.getFirstName() +"\t"+ "Passenger Id: "+"5"+
-                //", Seat number: " + passengerSeat.getseatNumber() +
-
+                " passenger: " + passenger.getFirstName()+ " " +passenger.getLastName() +"\t"+ "Passenger Id: "+passenger.getID()+
+                ", Seat number: " + passengerSeat.getseatNumber() +
                 "\n Seat number: " + passengerSeat.getSeatNumber() +"\t"+
                 " Class: "+ passengerSeat.getClass()
                 ;
