@@ -1,19 +1,21 @@
 package edu.asu.mainPackage;
 
 import java.util.ArrayList;
+import java.util.Timer;
 
 public class Booking {
-    private int bookingID;
+    private int bookingID, numberOfPassengers, flightClass;
     private String bookingStatus;
-    private ArrayList<Seat> seatinfo;
+    private ArrayList<Ticket> ticketsinfo;
     private Flight flightinfo;
-    private ArrayList<Passenger> passengersInBooking;
 
 
-    public Booking(int bookingID, Flight flightinfo) {
+
+    public Booking(int bookingID, Flight flightinfo, int numberOfPassengers, int flightClass) {
         this.bookingID = bookingID;
         this.bookingStatus = "pending payment";
         this.flightinfo = flightinfo;
+        this.flightClass=flightClass;
     }
 
     //Getters
@@ -25,18 +27,21 @@ public class Booking {
         return bookingStatus;
     }
 
-    public Seat[] getSeatinfo() {
-        return seatinfo;
+    public Ticket[] getTicketinfo() {
+        return ticketsinfo;
     }
 
     public Flight getFlightinfo() {
         return flightinfo;
     }
 
-    public Passenger[] getPassengersInBooking() {
-        return passengersInBooking;
+    public int getNumberOfPassengers() {
+        return numberOfPassengers;
     }
 
+    public int getFlightClass() {
+        return flightClass;
+    }
 
     //setters
     public void setBookingID(int bookingID) {
@@ -47,23 +52,26 @@ public class Booking {
         this.bookingStatus = bookingStatus;
     }
 
-    public void setSeatinfo(Seat[] seatinfo) {
-        this.seatinfo = seatinfo;
-    }
 
     public void setFlightinfo(Flight flightinfo) {
         this.flightinfo = flightinfo;
     }
 
-    public void setPassengersInBooking(Passenger[] passengersInBooking) {
-        this.passengersInBooking = passengersInBooking;
+    public void setNumberOfPassengers(int numberOfPassengers) {
+        this.numberOfPassengers = numberOfPassengers;
     }
 
-    //adding
-    public void addPassenger(Passenger passenger){
-        passengersInBooking.add(passenger);
+    public void setFlightClass(int flightClass) {
+        this.flightClass = flightClass;
     }
-    public void addSeat(Seat seat){
-        seatinfo.add(seat);
+
+    public void setTicketseat(int index, Seat seat){
+        Ticket ticket=this.ticketsinfo.get(index);
+        ticket.setSeat(seat);
+        this.ticketsinfo.set(index, ticket);
+    }
+    //adding
+    public void addTicket(Ticket ticket){
+        ticketsinfo.add(ticket);
     }
 }
