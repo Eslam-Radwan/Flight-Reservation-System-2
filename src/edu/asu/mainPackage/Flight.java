@@ -1,7 +1,8 @@
+package edu.asu.mainPackage;
+
 import java.sql.Time;
 import java.time.LocalTime;
 import java.util.ArrayList;
-
 public class Flight {
     private int flightNumber;
     private String departureAirport;
