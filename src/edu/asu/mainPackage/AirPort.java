@@ -33,6 +33,7 @@ public class AirPort {
      public void setFlightsInfo(Flight[] flightsInfo)
      {
         this.flightsInfo = flightsInfo;
+        //comment
 
      }
 }
