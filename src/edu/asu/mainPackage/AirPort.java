@@ -4,7 +4,7 @@ public class AirPort {
     private int airportCode;
     private String airportName;
     private String airportLocation;
-//   private Flight [] flightsInfo ;
+    private Flight [] flightsInfo ;
 
     public void setAirportCode(int airportCode) {
         this.airportCode = airportCode;
