@@ -12,28 +12,35 @@ public class Flight {
     private LocalTime arrivalTime;
     private LocalDate departureDate;
     private double[] seatPrice;
-    private seats[][] economySeats;
-    private seats[][] businessClass;
-    private seats[][] firstClass;
+    private Seat[][] economySeats;
+    private Seat[][] businessClass;
+    private Seat[][] firstClass;
     private int[] numberOfAvailableSeat ;
-public Flight(){
-    seatPrice=new double[3];
-    numberOfAvailableSeat = new int[]{30, 30, 30};
-    economySeats =new seats[5][6];
-    businessClass =new seats[5][6];
-    firstClass=new seats[5][6];
-}
+    ArrayList<String>  passenger = new ArrayList<>();
+
+    public Flight(){
+        seatPrice = new double[3];
+        numberOfAvailableSeat = new int[]{30, 30, 30};
+        economySeats = new Seat[5][6];
+        businessClass = new Seat[5][6];
+        firstClass=new Seat[5][6];
+    }
     public int getNumberOfAvailableSeat(int classType){
         return this.numberOfAvailableSeat[classType];
     }
 
-    public boolean equal(Flight flight){
-        if(this.departureAirport.equals(flight.departureAirport) && this.arrivalAirport.equals(flight.arrivalAirport))
+    @Override
+    public boolean equals(Object object){
+        Flight flight = (Flight)object;
+        if(this.departureAirport.equals(flight.departureAirport) && this.arrivalAirport.equals(flight.arrivalAirport)) {
             return true;
-        else return false;
+        }
+        else {
+            return false;
+        }
+
     }
 
-      ArrayList<String>  passenger = new ArrayList<>();
 
     public void setFlightNumber(int flightNumber) {
         this.flightNumber = flightNumber;
@@ -47,9 +54,39 @@ public Flight(){
         this.arrivalAirport = arrivalAirport;
     }
 
-    public void setNumberOfAvailableSeats(int numberOfAvailableSeats) {
-        this.numberOfAvailableSeats = numberOfAvailableSeats;
+    public void setDepartureTime(LocalTime departureTime) {
+        this.departureTime = departureTime;
     }
+
+    public void setArrivalTime(LocalTime arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public int getFlightNumber() {
         return flightNumber;
@@ -63,11 +100,24 @@ public Flight(){
         return arrivalAirport;
     }
 
-    public int getNumberOfAvailableSeats() {
-        return numberOfAvailableSeats;
+
+    public LocalTime getDepartureTime() {
+        return departureTime;
     }
 
-    public void setPassenger(ArrayList<String> passenger) {
-        this.passenger = passenger;
+    public LocalTime getArrivalTime() {
+        return arrivalTime;
     }
+
+    public LocalDate getDepartureDate() {
+        return departureDate;
+    }
+
+    public double getSeatPrice(int seatClass) {
+        return seatPrice[seatClass];
+    }
+
+
+
+
 }
