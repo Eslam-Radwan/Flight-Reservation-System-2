@@ -1,6 +1,6 @@
 package edu.asu.mainPackage;
 
-public class AirPort {
+public class Airport {
     private int airportCode;
     private String airportName;
     private String airportLocation;
