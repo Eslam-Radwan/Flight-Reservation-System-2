@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public interface UserWork {
-    default void userWork(ArrayList<Flight> Flights){
+    default boolean userWork(ArrayList<Flight> Flights){
         int choice;
         choice = userMenu();
         if(choice == 1){
