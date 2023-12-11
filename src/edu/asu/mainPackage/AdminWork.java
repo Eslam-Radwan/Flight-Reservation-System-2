@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public interface AdminWork {
 
-    default void adminWork(ArrayList<Flight> Flights){
+    default boolean adminWork(ArrayList<Flight> Flights){
         int choice;
         choice = adminMenu();
         if(choice == 1){
@@ -23,11 +23,15 @@ public interface AdminWork {
         {
             Admin.setSeatAvailability(Flights);
         }
-        else{
+        else if (choice == 5){
+            return false;
+        }
+        else {
             // out of the range
             // or
             // input string
         }
+        return true;
     }
     private static int adminMenu(){
         System.out.println("===============Admin Menu===============\n\n");
@@ -35,6 +39,7 @@ public interface AdminWork {
         System.out.println("[2]Update a Flight");
         System.out.println("[3]Delete a Flight");
         System.out.println("[4]Edit Seat Availability");
+        System.out.println("[5]Exit");
         System.out.print("Go to: ");
         Scanner input = new Scanner(System.in);
         return input.nextInt();

@@ -3,28 +3,27 @@ package edu.asu.mainPackage;
 import java.util.ArrayList;
 
 
-public class WorkFlow implements UserWork, AdminWork, LoginMenu{
+public class WorkFlow implements UserWork, AdminWork, LoginMenu, LoadData, UploadData{
 
     public  void work()
     {
         ArrayList<Flight> Flights = new ArrayList<>();
-//        ArrayList<AccountInfo> Accounts = new ArrayList<>();
-//        LoadData.loadFlights(Flights);
-//        LoadData.loadAccountsData(Accounts);
-
+        loadData();
         if(loginMenu() == 1){
-            while(true){
-                userWork(Flights);
+            boolean gotToWork = userWork(Flights); // when gotToWork = 0 the program upload the data and close
+            while(gotToWork){
+                gotToWork = userWork(Flights);
             }
         }
         else{
-            while(true) {
-                adminWork(Flights);
+
+            boolean gotToWork = adminWork(Flights); // when gotToWork = 0 the program upload the data and close
+            while(gotToWork)
+            {
+                gotToWork = adminWork(Flights);
             }
         }
-
-
-
+        uploadData();
     }
 
 
