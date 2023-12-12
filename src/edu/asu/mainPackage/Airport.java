@@ -30,10 +30,10 @@ public class Airport {
         return airportLocation;
     }
 
-     public void setFlightsInfo(Flight[] flightsInfo)
-     {
-        this.flightsInfo = flightsInfo;
-        //comment
-
-     }
+//     public void setFlightsInfo(Flight[] flightsInfo)
+//     {
+//        this.flightsInfo = flightsInfo;
+//        //comment
+//
+//     }
 }

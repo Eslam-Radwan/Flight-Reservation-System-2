@@ -19,7 +19,8 @@ public class Admin extends ApplicationUser{
 //    }
 
     public static Flight addFlight() {
-        Flight flight = new FLight();
+        Flight flight = new Flight();
+        Scanner input = new Scanner(System.in);
         System.out.print("Flight Number: ");
         int flightNumber = input.nextInt();
         System.out.print("Departure Airport: ");
@@ -42,12 +43,12 @@ public class Admin extends ApplicationUser{
 
 
 
-        flight.setflightNumber(flightNumber);
-        flight.setdepartureAirport(departureAirport);
-        flight.setarrivalAirport(arrivalAirport);
-        flight.setdepartureDate(departureDate);
-        flight.setdepartureTime(departureTime);
-        flight.setarrivalTime(arrivalTime);
+        flight.setFlightNumber(flightNumber);
+        flight.setDepartureAirport(departureAirport);
+        flight.setArrivalAirport(arrivalAirport);
+        flight.setDepartureDate(departureDate);
+        flight.setDepartureTime(departureTime);
+        flight.setArrivalTime(arrivalTime);
 
         return flight;
 
@@ -57,7 +58,7 @@ public class Admin extends ApplicationUser{
 
     public static void updateFlight(){
         displayFlights();
-
+        Scanner input = new Scanner(System.in);
         System.out.print("choose the number of flight: ");
         int numberOfFlight = input.nextInt();
         dislpayFlightInfo(Flights[numberOfFlight]);

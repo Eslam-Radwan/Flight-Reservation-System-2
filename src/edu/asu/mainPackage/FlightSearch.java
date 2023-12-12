@@ -6,7 +6,7 @@ import java.util.concurrent.Callable;
 
 public interface FlightSearch {
     default Booking flightSearch(){
-        Booking booking;
+        Booking booking = null;
         Flight Seleceted_Flight = new Flight();
 
         boolean Selected_A_Flight = false;
@@ -29,7 +29,7 @@ public interface FlightSearch {
 
 
         // searching the database for flights with the same attributes that the user selected
-        for(Flight flights:Flights){
+        for(Flight flights:WorkFlow.Flights){
             if(Seleceted_Flight.equals(flights) && flights.getNumberOfAvailableSeat(SeatClass) >= NumberOfSeats){
                 int Choice = 0;
                 FlightSearchRepresentation(flights);
@@ -64,9 +64,10 @@ public interface FlightSearch {
                 System.out.println("Press -1 to Exit");
                 exit=input.nextInt();
             }
-            if(exit == 0)flightSearch(Flights); // recursion technique
+            if(exit == 0)flightSearch(); // recursion technique
             //else return;
         }
+
         return booking;
     }
     private void FlightSearchRepresentation(Flight flight){

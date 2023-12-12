@@ -27,7 +27,7 @@ public class Booking {
         return bookingStatus;
     }
 
-    public Ticket[] getTicketinfo() {
+    public ArrayList<Ticket> getTicketinfo() {
         return ticketsinfo;
     }
 
@@ -67,7 +67,7 @@ public class Booking {
 
     public void setTicketseat(int index, Seat seat){
         Ticket ticket=this.ticketsinfo.get(index);
-        ticket.setSeat(seat);
+        ticket.setPassengerSeat(seat);
         this.ticketsinfo.set(index, ticket);
     }
     //adding

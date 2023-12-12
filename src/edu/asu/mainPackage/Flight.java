@@ -67,26 +67,29 @@ public class Flight {
     }
 
 
+    public double[] getSeatPrice() {
+        return seatPrice;
+    }
 
+    public Seat[][] getEconomySeats() {
+        return economySeats;
+    }
 
+    public Seat[][] getBusinessClass() {
+        return businessClass;
+    }
 
+    public Seat[][] getFirstClass() {
+        return firstClass;
+    }
 
+    public int[] getNumberOfAvailableSeat() {
+        return numberOfAvailableSeat;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public ArrayList<String> getPassenger() {
+        return passenger;
+    }
 
     public int getFlightNumber() {
         return flightNumber;
@@ -118,6 +121,17 @@ public class Flight {
     }
 
 
+
+    //for booking interface
+    public void setEconomySeatsAvailability(int row, int col, int seatClass){
+        economySeats[row][col].setSeatAvailability(false);
+    }
+    public void setBuisinessSeatsAvailability(int row, int col, int seatClass){
+        economySeats[row][col].setSeatAvailability(false);
+    }
+    public void setFirstclassSeatsAvailability(int row, int col, int seatClass){
+        economySeats[row][col].setSeatAvailability(false);
+    }
 
 
 }

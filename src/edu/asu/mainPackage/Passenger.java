@@ -8,6 +8,13 @@ public class Passenger {
     private Ticket ticketInfo;
     private  Booking bookingInfo;
 
+    public Passenger(String firstName, String lastName, int ID, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.ID = ID;
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getFirstName() {
         return firstName;
     }

@@ -15,15 +15,15 @@ public interface BookingProcess {
             System.out.printf("please Enter passenger %d last name:", i+1);
             String lastName = scanner.nextLine();
             System.out.printf("please Enter passenger %d ID:", i+1);
-            String id = scanner.nextLine();
+            int id = scanner.nextInt();
             System.out.printf("please Enter passenger %d Phone number:", i+1);
             String passengerNumber = scanner.nextLine();
             Passenger passenger = new Passenger(firstName, lastName, id, passengerNumber);
             Ticket ticket = new Ticket(passenger, ticketFare);
             booking.addTicket(ticket);
         }
-        SeatSelection.seatselection(flightinfo, numberofpassengers, booking);
-        PaymentProcess.paymentprocess(booking);
+        SeatSelection.seatselection(booking.getFlightinfo(), booking.getNumberOfPassengers(), booking);
+        PaymentProcess.paymentProcess(booking.getNumberOfPassengers(), booking.getFlightinfo().getSeatPrice(booking.getFlightClass()));
     }
 
 

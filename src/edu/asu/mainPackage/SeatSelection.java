@@ -5,10 +5,10 @@ import java.util.Scanner;
 public interface SeatSelection {
     public static void seatselection(Flight flightinfo, int numberOfPassengers, Booking booking){
         System.out.println("welcome to Seat selection:('+' sign means available seats)");
-       int flightClass=flightinfo.getFlightClass();
-        Seat[] economySeats = flightinfo.getEconomySeats();
-        Seat[] buisinessSeats = flightinfo.getbuisinessSeats();
-        Seat[] firstClassSeats = flightinfo.getfirstClassSeats();
+       int flightClass=booking.getFlightClass();
+        Seat[][] economySeats = flightinfo.getEconomySeats();
+        Seat[][] buisinessSeats = flightinfo.getBusinessClass();
+        Seat[][] firstClassSeats = flightinfo.getFirstClass();
        if(flightClass==0){
            char a='a';
            for(int i=0;i<6;i++){
@@ -17,7 +17,7 @@ public interface SeatSelection {
            for(int i=0;i<5;i++){
                System.out.printf("%d ", i+1);
                for(int j=0;j<6;j++){
-                   if(economySeats[i][j].getseatAvailability()==false){
+                   if(economySeats[i][j].getSeatAvailability()==false){
                        System.out.print("- ");
                    }
                    else{
@@ -32,7 +32,7 @@ public interface SeatSelection {
                System.out.print("please enter your seat:");
                String s = input.nextLine();
                flightinfo.setEconomySeatsAvailability((int)s.charAt(0), (int)s.charAt(0)-'a', 0);
-               Seat seat = new Seat();
+               Seat seat = new Seat(0, false, (int)s.charAt(0), (int)s.charAt(0)-'a');
                booking.setTicketseat(i, seat);
            }
        }
@@ -44,7 +44,7 @@ public interface SeatSelection {
             for(int i=0;i<5;i++){
                 System.out.printf("%d ", i+1);
                 for(int j=0;j<6;j++){
-                    if(buisinessSeats[i][j].getseatAvailability()==false){
+                    if(buisinessSeats[i][j].getSeatAvailability()==false){
                         System.out.print("- ");
                     }
                     else{
@@ -59,8 +59,8 @@ public interface SeatSelection {
            for(int i=0;i<numberOfPassengers;i++){
                System.out.print("please enter your seat:");
                String s = input.nextLine();
-               flightinfo.setEconomySeatsAvailability((int)s.charAt(0), (int)s.charAt(0)-'a', 0);
-               Seat seat = new Seat();
+               flightinfo.setBuisinessSeatsAvailability((int)s.charAt(0), (int)s.charAt(0)-'a', 0);
+               Seat seat = new Seat(1, false, (int)s.charAt(0), (int)s.charAt(0)-'a');
                booking.setTicketseat(i, seat);
            }
         }
@@ -72,7 +72,7 @@ public interface SeatSelection {
             for(int i=0;i<5;i++){
                 System.out.printf("%d ", i+1);
                 for(int j=0;j<6;j++){
-                    if(firstClassSeats[i][j].getseatAvailability()==false){
+                    if(firstClassSeats[i][j].getSeatAvailability()==false){
                         System.out.print("- ");
                     }
                     else{
@@ -86,8 +86,8 @@ public interface SeatSelection {
            for(int i=0;i<numberOfPassengers;i++){
                System.out.print("please enter your seat:");
                String s = input.nextLine();
-               flightinfo.setEconomySeatsAvailability((int)s.charAt(0), (int)s.charAt(0)-'a', 0);
-               Seat seat = new Seat();
+               flightinfo.setFirstclassSeatsAvailability((int)s.charAt(0), (int)s.charAt(0)-'a', 0);
+               Seat seat = new Seat(2, false, (int)s.charAt(0), (int)s.charAt(0)-'a');
                booking.setTicketseat(i, seat);
            }
         }

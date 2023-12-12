@@ -43,8 +43,6 @@ public class Ticket {
                 " TicketNumber: " + ticketNumber +"\t"+
                 "TicketFare: " + ticketFare +"\n"+
                 " passenger: " + passenger.getFirstName()+ " " +passenger.getLastName() +"\t"+ "Passenger Id: "+passenger.getID()+
-                ", Seat number: " + passengerSeat.getseatNumber() +
-                "\n Seat number: " + passengerSeat.getSeatNumber() +"\t"+
                 " Class: "+ passengerSeat.getClass()
                 ;
     }
