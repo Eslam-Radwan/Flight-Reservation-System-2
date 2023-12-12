@@ -13,8 +13,11 @@ public class Booking {
     private Payment payment;
 
 
-    public Booking(){}
+    public Booking(){
+        Tickets = new ArrayList<>();
+    }
     public Booking(int bookingID, Flight flight, int numberOfPassengers, int flightClass) {
+        Tickets = new ArrayList<>();
         this.bookingID = bookingID;
         this.bookingStatus = "pending payment";
         this.flight = flight;
@@ -30,8 +33,8 @@ public class Booking {
         return bookingStatus;
     }
 
-    public Ticket[] getTicketinfo() {
-        return ticketsinfo;
+    public ArrayList<Ticket> getTicketinfo() {
+        return Tickets;
     }
 
     public Flight getFlight() {
@@ -69,12 +72,12 @@ public class Booking {
     }
 
     public void setTicketseat(int index, Seat seat){
-        Ticket ticket=this.ticketsinfo.get(index);
-        ticket.setSeat(seat);
-        this.ticketsinfo.set(index, ticket);
+        Ticket ticket=this.Tickets.get(index);
+        ticket.setPassengerSeat(seat);
+        this.Tickets.set(index, ticket);
     }
     //adding
     public void addTicket(Ticket ticket){
-        ticketsinfo.add(ticket);
+        this.Tickets.add(ticket);
     }
 }

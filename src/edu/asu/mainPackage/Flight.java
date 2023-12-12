@@ -25,7 +25,7 @@ public class Flight {
         numberOfAvailableSeat = new int[]{30, 30, 30};
         economySeats = new Seat[5][6];
         businessClass = new Seat[5][6];
-        firstClass=new Seat[5][6];
+        firstClass = new Seat[5][6];
     }
     public int getNumberOfAvailableSeat(int classType){
         return this.numberOfAvailableSeat[classType];
@@ -34,7 +34,7 @@ public class Flight {
     @Override
     public boolean equals(Object object){
         Flight flight = (Flight)object;
-        if(this.departureAirport.equals(flight.departureAirport) && this.arrivalAirport.equals(flight.arrivalAirport) && this.departureDate.equals(flight.getDepartureAirport())) {
+        if(this.departureAirport.equals(flight.departureAirport) && this.arrivalAirport.equals(flight.arrivalAirport) && this.departureDate.equals(flight.getDepartureDate())) {
             return true;
         }
         else {
@@ -99,6 +99,18 @@ public class Flight {
 
     public double getSeatPrice(int seatClass) {
         return seatPrice[seatClass];
+    }
+
+    public Seat[][] getSeats(int seatClass) {
+        if(seatClass == 0){
+            return economySeats;
+        }
+        else if(seatClass == 1){
+            return businessClass;
+        }
+        else{
+            return firstClass;
+        }
     }
 
 

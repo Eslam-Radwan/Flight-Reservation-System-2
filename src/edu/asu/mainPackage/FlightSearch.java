@@ -14,20 +14,25 @@ public interface FlightSearch {
         Scanner input = new Scanner(System.in);
 
         // Setting the Attributes that the user searched for
-        System.out.println("Enter your Desired departure Airport: ");
+        System.out.print("Enter your Desired departure Airport: ");
         Seleceted_Flight.setDepartureAirport(input.next());
 
-        System.out.println("Enter your Desired arrival Airport: ");
+        System.out.print("Enter your Desired arrival Airport: ");
         Seleceted_Flight.setArrivalAirport(input.next());
-        System.out.println("Enter year and month and day");
-        Seleceted_Flight.setDepartureDate(LocalDate.of(input.nextInt(),input.nextInt(),input.nextInt()));
-        System.out.println("Enter your Desired Seat Class: ");
+        System.out.print("Enter year and month and day: ");
+        int year,month,day;
+        year = input.nextInt();
+        month = input.nextInt();
+        day = input.nextInt();
+        LocalDate departureDate = LocalDate.of(year,month,day);
+        Seleceted_Flight.setDepartureDate(departureDate);
+        System.out.print("Enter your Desired Seat Class: ");
         System.out.println("Press 0 for Economic Class");
         System.out.println("Press 1 for Business Class");
         System.out.println("Press 2 for First Class");
         int SeatClass = input.nextInt();
         booking.setFlightClass(SeatClass);
-        System.out.println("Enter your Desired number of seats: ");
+        System.out.print("Enter your Desired number of seats: ");
         int NumberOfSeats = input.nextInt();
         booking.setNumberOfPassengers(NumberOfSeats);
 
