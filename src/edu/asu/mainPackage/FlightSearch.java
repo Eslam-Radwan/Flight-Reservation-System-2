@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.concurrent.Callable;
 
 public interface FlightSearch {
-    default Booking flightSearch(ArrayList<Flight> Flights){
+    default Booking flightSearch(){
         Booking booking;
         Flight Seleceted_Flight = new Flight();
 
