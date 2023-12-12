@@ -4,48 +4,72 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public interface UserWork {
-    default int userWork(User user){
+    default int userWork(User user) {
         int choice;
         choice = userMenu();
-        if(choice == 1){
-            Booking booking;
-            booking = user.flightSearch();
-            user.bookingProcess(booking);
+        if (choice == 1) {
+
+            Booking booking = new Booking();
+            boolean bookingCheck = user.flightSearch(booking);
+            if(bookingCheck == true){
+                booking.setBookingID(user.getBookings().size() + 1);
+                booking.setBookingStatus("pending");
+                user.bookingProcess(booking);
+            }
             return 2;
-        }
-        else if(choice == 2){
-            profile(user);
+        } else if (choice == 2) {
+            while(profile(user) == 1){
+                bookedFlights(user);
+            }
             return 2;
-        }
-        else if(choice == 3){
+        } else if (choice == 3) {
             return 1;
-        }
-        else if(choice == 4){
+        } else if (choice == 4) {
             return 0;
-        }
-        else{
+        } else {
+            System.out.println("UserWork out of range else");
             // out of the range
             // or
             // input string
         }
         return 2;
     }
-    private int userMenu()
-    {
+
+    private int userMenu() {
         System.out.println("===============User Menu===============");
         System.out.println("[1]Search for a FLight");
         System.out.println("[2]Profile");
         System.out.println("[3]Logout");
-        System.out.println("[2]Exit");
+        System.out.println("[4]Exit");
         System.out.print("Go To: ");
         Scanner input = new Scanner(System.in);
         return input.nextInt();
     }
-    private void profile(User user){
+
+    private int profile(User user) {
         System.out.println(user);
         System.out.println("[1]Booked Flights");
         System.out.println("[2]Back");
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
+        return choice;
+    }
+
+    private void bookedFlights(User user) {
+        for (Booking booking : user.getBookings()) {
+            System.out.println("Booking ID: " + booking.getBookingID());
+            System.out.println("Number Of Passengers: " + booking.getNumberOfPassengers());
+            System.out.println("Flight Class: " + booking.getFlightClass());
+            System.out.println("Booking Status: " + booking.getBookingStatus());
+            System.out.println(booking.getFlight());
+            System.out.println("==============================");
+        }
+        System.out.println("[1]Back");
+        Scanner input = new Scanner(System.in);
+        int choice = input.nextInt();
+        while(choice != 1){
+            System.out.println("worng input");
+            choice = input.nextInt();
+        }
     }
 }

@@ -3,7 +3,7 @@ package edu.asu.mainPackage;
 import java.util.Scanner;
 
 public interface SeatSelection {
-    public static void seatselection(Flight flightinfo, int numberOfPassengers, Booking booking){
+    public static void seatSelection(Flight flightinfo, int numberOfPassengers, Booking booking){
         System.out.println("welcome to Seat selection:('+' sign means available seats)");
        int flightClass=flightinfo.getFlightClass();
         Seat[] economySeats = flightinfo.getEconomySeats();

@@ -4,14 +4,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public interface PaymentProcess {
-    static Payment paymentProcess(int numberOfPassengers, double priceOfClass){
-        Payment unvalidPayment =new Payment(numberOfPassengers,priceOfClass);
-        Scanner scanner=new Scanner(System.in);
+    default Payment paymentProcess(Booking booking) {
+        Payment unvalidPayment = new Payment(booking.getNumberOfPassengers(), booking.getFlight().getSeatPrice(booking.getFlightClass()));
+        Scanner scanner = new Scanner(System.in);
         int paymentMethodChoice = 0;
-        String []methodChoice =new String[3];
-        methodChoice[0]="visa";
-        methodChoice[1]="mastercard";
-        methodChoice[2]="paypal";
+        String[] methodChoice = new String[3];
+        methodChoice[0] = "visa";
+        methodChoice[1] = "mastercard";
+        methodChoice[2] = "paypal";
 
         String paymentMethod;
         String cardNumber;
@@ -19,7 +19,7 @@ public interface PaymentProcess {
         String expiryDate;
 
 
-        System.out.printf("Confirm Payment: \n Total Amount: %f \n",unvalidPayment.getPaymentAmount());
+        System.out.printf("Confirm Payment: \n Total Amount: %f \n", unvalidPayment.getPaymentAmount());
 
         //take payment method
         System.out.print(" [1] visa \n [2] mastercard \n [3] paypal\n");
@@ -29,10 +29,9 @@ public interface PaymentProcess {
         while (valid) {
             try {
                 paymentMethodChoice = scanner.nextInt();
-                if(paymentMethodChoice>0&&paymentMethodChoice<4){
-                valid = false;
-                }
-                else{
+                if (paymentMethodChoice > 0 && paymentMethodChoice < 4) {
+                    valid = false;
+                } else {
                     System.out.println("Invalid range.  Please enter a number: ");
                 }
             } catch (InputMismatchException e) {
@@ -42,21 +41,21 @@ public interface PaymentProcess {
             scanner.nextLine();
 
         }
-        paymentMethod=methodChoice[paymentMethodChoice-1];
+        paymentMethod = methodChoice[paymentMethodChoice - 1];
 
         //take cardNumber
         System.out.println("Enter your card number: ");
-        cardNumber=scanner.nextLine();
+        cardNumber = scanner.nextLine();
 
         //take expiryDate
         System.out.println("Enter ExpiryDate: ");
-        expiryDate=scanner.nextLine();
+        expiryDate = scanner.nextLine();
         //take cardNumber
         System.out.println("Enter cvv: ");
-        cvv=scanner.nextLine();
+        cvv = scanner.nextLine();
 
         //valid payment
-        unvalidPayment.ValidPayment(paymentMethod,cardNumber,expiryDate,cvv);
+        unvalidPayment.ValidPayment(paymentMethod, cardNumber, expiryDate, cvv);
 
         return unvalidPayment;
     }
