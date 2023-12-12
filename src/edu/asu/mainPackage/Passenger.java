@@ -37,13 +37,6 @@ public class Passenger {
         this.ID = ID;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public Ticket getTicketInfo() {
         return ticketInfo;

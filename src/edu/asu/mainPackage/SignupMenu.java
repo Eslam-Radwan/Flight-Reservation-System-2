@@ -5,15 +5,15 @@ import java.util.Scanner;
 public interface SignupMenu {
     default void signupMenu(ApplicationUser user){
         Scanner input = new Scanner(System.in);
-        System.out.println("First Name: ");
+        System.out.print("First Name: ");
         user.setFirstName(input.next());
-        System.out.println("Last Name: ");
+        System.out.print("Last Name: ");
         user.setLastName(input.next());
-        System.out.println("Username: ");
+        System.out.print("Username: ");
         user.setUsername(input.next());
-        System.out.println("Email Address: ");
+        System.out.print("Email Address: ");
         user.setEmailAddress(input.next());
-        System.out.println("Password: ");
+        System.out.print("Password: ");
         user.setPassword(input.next());
         user.setUser(true);
     }

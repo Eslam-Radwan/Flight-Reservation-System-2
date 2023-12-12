@@ -8,7 +8,7 @@ public class Seat {
     private int seatRow ;
     private int seatColumn ;
 
-
+    public Seat(){}
     public Seat (int seatNumber, int seatClass , boolean seatAvailability , int seatRow , int seatColumn ){
         this.seatNumber = seatNumber ;
         this.seatClass = seatClass ;

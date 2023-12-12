@@ -6,11 +6,12 @@ public class Ticket {
     private double ticketFare;
     private Passenger passenger;
     private Seat passengerSeat;
-    Ticket(Passenger passenger,double ticketFare){
+
+    public Ticket(Passenger passenger, double ticketFare) {
         ticketNumber = previousTicketNumber + 1;
         previousTicketNumber++;
-        this.passenger=passenger;
-        this.ticketFare=ticketFare;
+        this.passenger = passenger;
+        this.ticketFare = ticketFare;
     }
 
     public int getTicketNumber() {
@@ -39,13 +40,13 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return " Ticket:" +"\n"+
-                " TicketNumber: " + ticketNumber +"\t"+
-                "TicketFare: " + ticketFare +"\n"+
-                " passenger: " + passenger.getFirstName()+ " " +passenger.getLastName() +"\t"+ "Passenger Id: "+passenger.getID()+
-                ", Seat number: " + passengerSeat.getseatNumber() +
-                "\n Seat number: " + passengerSeat.getSeatNumber() +"\t"+
-                " Class: "+ passengerSeat.getClass()
+        return " Ticket:" + "\n" +
+                " TicketNumber: " + ticketNumber + "\t" +
+                "TicketFare: " + ticketFare + "\n" +
+                " passenger: " + passenger.getFirstName() + " " + passenger.getLastName() + "\t" + "Passenger Id: " + passenger.getID() +
+                ", Seat number: " + passengerSeat.getSeatNumber() +
+                "\n Seat number: " + passengerSeat.getSeatNumber() + "\t" +
+                " Class: " + passengerSeat.getClass()
                 ;
     }
 }

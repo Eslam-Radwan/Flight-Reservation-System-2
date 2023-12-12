@@ -77,7 +77,7 @@ public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, Loa
     private int firstPage(){
         System.out.println("[1]Login");
         System.out.println("[2]Signup");
-        System.out.println("Go To: ");
+        System.out.print("Go To: ");
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
 

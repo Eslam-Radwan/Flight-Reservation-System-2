@@ -12,18 +12,18 @@ public interface AdminWork {
         choice = adminMenu();
         if(choice == 1){
             Flight flight;
-            flight = admin.addFlight();
+            flight = Admin.addFlight();
             Flights.add(flight);
         }
         else if(choice == 2){
-            admin.updateFlight();
+            Admin.updateFlight();
         }
         else if(choice == 3){
-            admin.deleteFlight();
+            Admin.deleteFlight();
         }
         else if(choice == 4)
         {
-            admin.setSeatAvailability();
+            Admin.changeSeatAvailability();
         }
         else if (choice == 5){
             return 1;
@@ -39,7 +39,7 @@ public interface AdminWork {
         return 2;
     }
     private static int adminMenu(){
-        System.out.println("===============Admin Menu===============\n\n");
+        System.out.println("===============Admin Menu===============\n");
         System.out.println("[1]Add a Flight");
         System.out.println("[2]Update a Flight");
         System.out.println("[3]Delete a Flight");

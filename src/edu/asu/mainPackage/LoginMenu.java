@@ -8,9 +8,9 @@ public interface LoginMenu {
     {
         Scanner input = new Scanner(System.in);
         do {
-            System.out.println("Username: ");
+            System.out.print("Username: ");
             String username = input.next();
-            System.out.println("Password: ");
+            System.out.print("Password: ");
             String password = input.next();
             for (ApplicationUser appUserCheck : appUsers) {
                 if (appUserCheck.getUsername().equals(username) && appUserCheck.getPassword().equals(password)) {

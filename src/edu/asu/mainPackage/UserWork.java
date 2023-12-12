@@ -11,7 +11,7 @@ public interface UserWork {
 
             Booking booking = new Booking();
             boolean bookingCheck = user.flightSearch(booking);
-            if(bookingCheck == true){
+            if(bookingCheck){
                 booking.setBookingID(user.getBookings().size() + 1);
                 booking.setBookingStatus("pending");
                 user.bookingProcess(booking);
@@ -51,6 +51,7 @@ public interface UserWork {
         System.out.println("[1]Booked Flights");
         System.out.println("[2]Back");
         Scanner input = new Scanner(System.in);
+        System.out.print("Go To: ");
         int choice = input.nextInt();
         return choice;
     }
@@ -66,6 +67,7 @@ public interface UserWork {
         }
         System.out.println("[1]Back");
         Scanner input = new Scanner(System.in);
+        System.out.print("Go To: ");
         int choice = input.nextInt();
         while(choice != 1){
             System.out.println("worng input");
