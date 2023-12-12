@@ -4,17 +4,20 @@ import java.util.ArrayList;
 import java.util.Timer;
 
 public class Booking {
-    private int bookingID, numberOfPassengers, flightClass;
+    private int bookingID;
+    private int numberOfPassengers;
+    private int flightClass;
     private String bookingStatus;
-    private ArrayList<Ticket> ticketsinfo;
-    private Flight flightinfo;
+    private ArrayList<Ticket> Tickets;
+    private Flight flight;
+    private Payment payment;
 
 
-
-    public Booking(int bookingID, Flight flightinfo, int numberOfPassengers, int flightClass) {
+    public Booking(){}
+    public Booking(int bookingID, Flight flight, int numberOfPassengers, int flightClass) {
         this.bookingID = bookingID;
         this.bookingStatus = "pending payment";
-        this.flightinfo = flightinfo;
+        this.flight = flight;
         this.flightClass=flightClass;
     }
 
@@ -31,8 +34,8 @@ public class Booking {
         return ticketsinfo;
     }
 
-    public Flight getFlightinfo() {
-        return flightinfo;
+    public Flight getFlight() {
+        return flight;
     }
 
     public int getNumberOfPassengers() {
@@ -53,8 +56,8 @@ public class Booking {
     }
 
 
-    public void setFlightinfo(Flight flightinfo) {
-        this.flightinfo = flightinfo;
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 
     public void setNumberOfPassengers(int numberOfPassengers) {

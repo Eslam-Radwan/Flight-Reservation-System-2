@@ -35,11 +35,11 @@ public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, Loa
         ApplicationUser appUser = loginMenu(appUsers);
 
 
-        if(appUser.isUser()){
+        if(appUser instanceof User){
             User user = (User)appUser;
-            int gotToWork = userWork(); //0 -> the program upload the data and exit, 1 -> logout
+            int gotToWork = userWork(user); //0 -> the program upload the data and exit, 1 -> logout
             while(gotToWork == 2){
-                gotToWork = userWork();
+                gotToWork = userWork(user);
             }
             if(gotToWork == 0){
                 return false;
@@ -48,11 +48,11 @@ public class WorkFlow implements UserWork, AdminWork, LoginMenu, SignupMenu, Loa
                 return true;
             }
         }
-        else {
+        else if(appUser instanceof Admin){
             Admin admin = (Admin)appUser;
-            int gotToWork = adminWork(); //0 -> the program upload the data and exit, 1 -> logout
+            int gotToWork = adminWork(admin); //0 -> the program upload the data and exit, 1 -> logout
             while(gotToWork == 2) {
-                gotToWork = adminWork();
+                gotToWork = adminWork(admin);
             }
             if(gotToWork == 0){
                 return false;

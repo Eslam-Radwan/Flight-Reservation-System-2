@@ -4,9 +4,14 @@ public class Passenger {
     private String firstName;
     private String lastName;
     private int ID;
-    private String phoneNumber;
     private Ticket ticketInfo;
     private  Booking bookingInfo;
+
+    public Passenger(String firstName, String lastName, int ID) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.ID = ID;
+    }
 
     public String getFirstName() {
         return firstName;

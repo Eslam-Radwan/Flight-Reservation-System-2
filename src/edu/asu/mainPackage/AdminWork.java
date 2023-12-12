@@ -7,23 +7,23 @@ import static edu.asu.mainPackage.WorkFlow.Flights;
 
 public interface AdminWork {
 
-    default int adminWork(){
+    default int adminWork(Admin admin){
         int choice;
         choice = adminMenu();
         if(choice == 1){
             Flight flight;
-            flight = Admin.addFlight();
+            flight = admin.addFlight();
             Flights.add(flight);
         }
         else if(choice == 2){
-            Admin.updateFlight();
+            admin.updateFlight();
         }
         else if(choice == 3){
-            Admin.deleteFlight();
+            admin.deleteFlight();
         }
         else if(choice == 4)
         {
-            Admin.setSeatAvailability();
+            admin.setSeatAvailability();
         }
         else if (choice == 5){
             return 1;
