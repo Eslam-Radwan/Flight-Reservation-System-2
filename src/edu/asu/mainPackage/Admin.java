@@ -4,9 +4,20 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.Scanner;
 
+import static edu.asu.mainPackage.WorkFlow.Flights;
+
 public class Admin extends ApplicationUser{
     Scanner input = new Scanner(System.in);
-/*
+
+//    public Admin(ApplicationUser admin){
+//        this.setFirstName(admin.getFirstName());
+//        this.setLastName(admin.getLastName());
+//        this.setPassword(admin.getPassword());
+//        this.setEmailAddress(admin.getEmailAddress());
+//        this.setFirstName(admin.getFirstName());
+//        this.setUser(false);
+//    }
+
     public static Flight addFlight() {
         Flight flight = new FLight();
         System.out.print("Flight Number: ");
@@ -44,7 +55,7 @@ public class Admin extends ApplicationUser{
 
 
 
-    public static void updateFlight(ArrayList<Flight> Flights){
+    public static void updateFlight(){
         displayFlights();
 
         System.out.print("choose the number of flight: ");
@@ -119,7 +130,7 @@ public class Admin extends ApplicationUser{
         changeSeatAvailability(row,column,Flights[numberOfFlight]);
     }
 
-*/
+
 
 
 }
