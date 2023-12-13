@@ -14,6 +14,7 @@ public interface UploadData {
             userOutputStream.writeObject(WorkFlow.appUsers);
         }catch (IOException ioException){
             System.out.println(ioException.toString());
+            System.out.println("3");
         }
 
         try{
@@ -21,6 +22,7 @@ public interface UploadData {
             flightsOutputStream.writeObject(WorkFlow.Flights);
         }catch (IOException ioException){
             System.out.println(ioException.toString());
+            System.out.println("4");
         }
     }
 }
